@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset ="UTF-8 ">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509519578963829"
+     crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>صفحة الإعلانات</title>
+</head>
+<body>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+}
+
+main {
+	padding: 20px;
+}
+
+.ads-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.ad-window {
+	width: 300px;
+	height: 300px;
+	margin: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.ad-window:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.ad-window:hover:before {
+	opacity: 1;
+}
+
+.ad-window .ad-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font-size: 24px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+</style>
+	<header>
+		<h1>صفحة الإعلانات</h1>
+	</header>
+	<main>
+		<div class="ads-container">
+			<!-- ستظهر هنا النوافذ الصغيرة -->
+		</div>
+	</main>
+	<footer>
+		<p>&copy; جميع الحقوق محفوظة 2022</p>
+	</footer>
+	<script src>
+const apiKey = 'pub-8509519578963829';
+const adsContainer = $('.ads-container');
+
+function showAd(adWindow) {
+	adWindow.html(`
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-client="ca-pub-${apiKey}"
+			 data-ad-slot="1234567890"
+			 data-ad-format="auto"
+			 data-full-width-responsive="true"></ins>
+	`);
+	(adsbygoogle = window.adsbygoogle || []).push({});
+}
+
+for (let i = 0; i < 5000; i++) {
+	const adWindow = $('<div></div>').addClass('ad-window');
+	adWindow.on('click', () => {
+		showAd(adWindow);
+	});
+	adsContainer.append(adWindow);
+	showAd(adWindow);
+}
+
+$(window).on('load', () => {
+	(adsbygoogle= window.adsbygoogle || []).push({});
+});
+</script>
+</body>
+</html>
